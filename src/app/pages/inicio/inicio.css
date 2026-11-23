@@ -1,0 +1,210 @@
+:root {
+  --azul-escuro: #0a1128;
+  --azul: #0090d0;
+  --fundo: #f3f5f9;
+  --branco: #ffffff;
+  --texto: #1c2333;
+  --cinza: #6b7488;
+  --borda: #e1e6ef;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ---------- Cabeçalho: 3 colunas (logo | menu | ícones) ---------- */
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 24px;
+  height: 56px;
+  background: var(--azul-escuro);
+  color: var(--branco);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.logo-icone {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--azul);
+}
+
+.menu { display: flex; gap: 20px; font-size: 14px; }
+.menu a { color: #8b95ad; }
+.menu a.ativo { color: var(--branco); font-weight: 600; }
+
+.acoes { display: flex; justify-content: flex-end; gap: 16px; }
+.acoes button {
+  position: relative;
+  background: none;
+  border: 0;
+  color: var(--branco);
+  cursor: pointer;
+}
+.acoes svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 16px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  background: var(--azul);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ---------- Corpo: sidebar fixa + conteúdo flexível ---------- */
+.layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+}
+
+.filtros {
+  padding: 24px 20px;
+  background: var(--branco);
+}
+.filtros h2 { font-size: 13px; margin-bottom: 12px; }
+.filtros li { margin-bottom: 10px; font-size: 12px; }
+.filtros label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.filtros input { accent-color: var(--azul); }
+
+.conteudo { padding: 20px 24px 32px; }
+
+.conteudo-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.conteudo-topo h1 { font-size: 18px; }
+.ordenar { font-size: 12px; color: var(--cinza); }
+.ordenar select {
+  border: 0;
+  background: none;
+  color: var(--azul);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- Grade de produtos: 3 colunas que se adaptam ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 8px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+}
+.card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4.2 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #1d2540;
+  margin-bottom: 8px;
+}
+.card h3 { font-size: 12px; margin-bottom: 4px; }
+.preco-antigo { font-size: 10px; color: var(--cinza); text-decoration: line-through; }
+.preco { font-size: 15px; font-weight: 700; color: var(--azul); margin-bottom: 8px; }
+
+.btn-comprar {
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--azul);
+  color: var(--branco);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-comprar:hover { background: #007bb5; }
+
+/* ---------- Paginação ---------- */
+.paginacao {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 40px;
+}
+.paginacao a {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--borda);
+  border-radius: 5px;
+  background: var(--branco);
+  font-size: 11px;
+}
+.paginacao a.ativo { background: var(--azul); border-color: var(--azul); color: var(--branco); }
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  padding: 28px 24px 16px;
+  background: var(--azul-escuro);
+  color: #8b95ad;
+  font-size: 10px;
+}
+.rodape-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+.rodape h4 { color: var(--branco); font-size: 12px; margin-bottom: 10px; }
+.rodape li, .rodape p { margin-bottom: 6px; line-height: 1.5; }
+.rodape-colunas > div:first-child p { max-width: 200px; }
+.atendimento { text-align: right; }
+
+.rodape-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid #1c2640;
+}
+.redes { display: flex; gap: 12px; }
+.redes a { color: #8b95ad; font-weight: 600; }
+
+/* ---------- Celular: sidebar vira bloco no topo ---------- */
+@media (max-width: 720px) {
+  .topbar { grid-template-columns: 1fr auto; }
+  .menu { display: none; }
+  .layout { grid-template-columns: 1fr; }
+  .rodape-colunas { grid-template-columns: 1fr; }
+  .atendimento { text-align: left; }
+}

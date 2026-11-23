@@ -1,0 +1,72 @@
+<div class="pagina">
+
+  <aside class="lateral">
+    <h2 class="logo">TechStore</h2>
+    <h2 class="boas-vindas">Crie sua conta</h2>
+  </aside>
+
+  <main class="conteudo">
+    <form class="formulario" [formGroup]="formulario" (ngSubmit)="cadastrar()" novalidate>
+      <h1>Cadastre-se</h1>
+      <p class="subtitulo">Preencha seus dados para continuarmos</p>
+
+      @if (mensagemErro()) {
+        <p class="alerta">{{ mensagemErro() }}</p>
+      }
+
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" formControlName="nome" autocomplete="name">
+        @if (campoInvalido('nome')) {
+          <small class="erro">Informe seu nome (mínimo 3 letras).</small>
+        }
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input id="email" type="text" formControlName="email" autocomplete="email" inputmode="email">
+        @if (campoInvalido('email')) {
+          <small class="erro">Informe um e-mail válido, como nome&#64;email.com.</small>
+        }
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" formControlName="senha" autocomplete="new-password">
+        @if (campoInvalido('senha')) {
+          <small class="erro">A senha precisa ter pelo menos 6 caracteres.</small>
+        }
+      </div>
+
+      <div class="campo">
+        <label for="confirmarSenha">Confirmar senha</label>
+        <input id="confirmarSenha" type="password" formControlName="confirmarSenha" autocomplete="new-password">
+        @if (senhasDiferentes()) {
+          <small class="erro">As senhas não são iguais.</small>
+        } @else if (campoInvalido('confirmarSenha')) {
+          <small class="erro">Confirme sua senha.</small>
+        }
+      </div>
+
+      <div class="termos">
+        <label>
+          <input type="checkbox" formControlName="termos">
+          Li e aceito os termos de uso
+        </label>
+        @if (campoInvalido('termos')) {
+          <small class="erro">Você precisa aceitar os termos de uso.</small>
+        }
+      </div>
+
+      <button class="entrar" type="submit" [disabled]="carregando()">
+        {{ carregando() ? 'Criando conta...' : 'Criar conta' }}
+      </button>
+    </form>
+
+    <div class="rodape">
+      <p>Já tem uma conta?</p>
+      <button class="criar" type="button" (click)="irParaLogin()">Entrar</button>
+    </div>
+  </main>
+
+</div>

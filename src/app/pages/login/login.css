@@ -1,0 +1,189 @@
+/* ---------- Geral ---------- */
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #1a2238;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.pagina {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  min-height: 100vh;
+}
+
+/* ---------- Painel lateral ---------- */
+.lateral {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  background: #0a0f2c;
+  color: white;
+}
+
+.lateral h2 {
+  margin: 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.boas-vindas {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* ---------- Lado do formulário ---------- */
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 24px;
+  background: #f3f5f9;
+}
+
+.formulario {
+  width: 100%;
+  max-width: 380px;
+}
+
+.formulario h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.subtitulo {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #6b7690;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.campo input {
+  padding: 11px 12px;
+  border: 1px solid #d5dbe7;
+  border-radius: 6px;
+  background: white;
+  font: inherit;
+  font-size: 14px;
+  color: #1a2238;
+}
+
+.campo input::placeholder {
+  color: #9aa3b8;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: #0090d0;
+  box-shadow: 0 0 0 3px rgba(0, 144, 208, 0.18);
+}
+
+/* ---------- Lembrar / Esqueci ---------- */
+.opcoes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.lembrar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.esqueci {
+  color: #0090d0;
+  text-decoration: none;
+}
+
+.esqueci:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Botão Entrar ---------- */
+.entrar {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #0090d0;
+  color: white;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.entrar:hover {
+  background: #0079b0;
+}
+
+/* ---------- Criar conta ---------- */
+.rodape {
+  width: 100%;
+  max-width: 380px;
+  padding-top: 20px;
+  border-top: 1px solid #e3e8f0;
+  text-align: center;
+}
+
+.rodape p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #6b7690;
+}
+
+.criar {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #0090d0;
+  border-radius: 6px;
+  background: white;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0090d0;
+  cursor: pointer;
+}
+
+.criar:hover {
+  background: #eaf6fc;
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 720px) {
+  .pagina {
+    grid-template-columns: 1fr;
+  }
+
+  .lateral {
+    gap: 12px;
+    padding: 24px;
+  }
+
+  .boas-vindas {
+    font-size: 28px;
+  }
+}
